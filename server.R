@@ -14,7 +14,7 @@ shinyServer(
             if (is.null(inFile))
                 return(NULL)
             
-            dnaseq <- read.fasta(inFile$datapath, seqonly=T)
+            dnaseq <- tolower(read.fasta(inFile$datapath, seqonly=T))
             
             for(j in 1:length(dnaseq)) {
                 temp <- data.frame(count(s2c(dnaseq[[j]]), nchar(sterm)))
